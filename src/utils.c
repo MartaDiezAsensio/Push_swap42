@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdiez-as <mdiez-as@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/25 13:25:30 by huaydin           #+#    #+#             */
-/*   Updated: 2023/09/07 17:53:53 by mdiez-as         ###   ########.fr       */
+/*   Created: 2023/09/27 17:55:02 by mdiez-as          #+#    #+#             */
+/*   Updated: 2023/09/27 18:36:55 by mdiez-as         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void	initialize_stacks(int argc, char **argv, t_stacks *s)
 		free_and_exit_with_message(s, "Error\n");
 }
 
+//**
 void	create_index(t_stacks *s)
 {
 	int		i;
@@ -120,11 +121,11 @@ int	ft_atol(const char *n, t_stacks *s)
 	}
 	while (n[i])
 	{
-		if (res > 2147483647 || (res * sign) < -2147483648 || ft_strlen(n) > 11)
-			free_and_exit_with_message(s, "Error\n");
 		if (!(n[i] >= '0' && n[i] <= '9'))
 			free_and_exit_with_message(s, "Error\n");
 		res = res * 10 + (n[i++] - '0');
+		if (res > 2147483647 || (res * sign) < -2147483648 || ft_strlen(n) > 11)
+			free_and_exit_with_message(s, "Error\n");
 	}
 	return ((int)(res * sign));
 }

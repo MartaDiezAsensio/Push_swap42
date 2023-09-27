@@ -6,7 +6,7 @@
 #    By: mdiez-as <mdiez-as@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/23 22:14:00 by huaydin           #+#    #+#              #
-#    Updated: 2023/09/07 18:10:31 by mdiez-as         ###   ########.fr        #
+#    Updated: 2023/09/27 18:05:13 by mdiez-as         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,17 +44,12 @@ re:	fclean all clean
 
 .PHONY: all clean fclean test re
 
-OS = $(shell uname)
 
-size ?= 10
+# size ?= 10
 
-ifeq ($(OS),Linux)
-CHECKER = valgrind ./push_swap $(ARG) | ./checker_linux $(ARG)
-else
-CHECKER = ./push_swap $(ARG) | ./checker_Mac $(ARG)
-endif
+# CHECKER = ./push_swap $(ARG) | ./checker_Mac $(ARG)
 
-test:
-	@$(eval ARG = $(shell seq -1000 1000 | shuf -n $(size)))
-	$(CHECKER)
-	@./push_swap $(ARG) | wc -l
+# test:
+# 	@$(eval ARG = $(shell seq -1000 1000 | shuf -n $(size)))
+# 	$(CHECKER)
+# 	@./push_swap $(ARG) | wc -l
